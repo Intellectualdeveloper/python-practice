@@ -25,5 +25,5 @@ print(name)
 # input() = A function that prompts the user to enter data returns the entered data as a string
 activity = input("konsa course kar rahe ho ")
 
-print (f"OH I SEE {activity} that is a very nice course")
+
 

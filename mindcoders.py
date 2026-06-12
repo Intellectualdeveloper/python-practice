@@ -895,3 +895,351 @@ print(obj.variable_1, obj.var_1, obj.fun_1())
 print(obj.variable_2, obj.var_2, obj.fun_2())
 print(obj.variable_3, obj.var_3, obj.fun_3())
 
+#
+class Super:
+    def __init__(self,name):
+        self.name = name 
+
+    def __str__(self):
+        return "My name is " + self.name + "."
+    
+class Sub(Super):
+    def __init__(self, name):
+        pass
+        Super.__init__(self,name)
+
+obj = Sub("Andy")
+print(obj)    
+
+#
+class SuperA:
+    var_a = 10
+    def fun_a(self):
+        return 11
+    
+class SuperB:
+    var_b = 20
+    def fun_b(self):
+        return 21
+    
+class Sub(SuperA,SuperB):
+    pass
+
+obj = Sub()
+print(obj.var_a,obj.fun_a())
+print(obj.var_b,obj.fun_b())
+
+#
+class Level1:
+    var = 100
+    def fun(self):
+        return 101
+    
+class Level2:
+    var = 200
+    def fun(self):
+        return 201
+    
+class Level1(Level2):
+    pass
+
+obj = Level1()
+print(obj.var, obj.fun())
+
+#
+class left:
+    var = "L"
+    var_left = "LL"
+    def fun(self):
+        return"Left"
+class right:
+    var = "R"
+    var_right = "RR"
+    def fun(self):
+        return "Right"
+    
+class Sub(left,right):
+    pass
+obj = Sub()
+print(obj.var,obj.var_left,obj.var_right,obj.fun())
+
+#
+class One:
+    def do_it(self):
+        print("do_it from One")
+
+    def doanything(self):
+        self.do_it()
+
+class Two(One):
+    def do_it(self):
+        print("do_it from Two")
+
+one = One()
+two = Two()
+one.doanything()
+two.doanything()
+
+#
+class One:
+    def do_it(self):
+        print("do_it from One")
+
+    def doanything(self):
+        self.do_it()
+
+class Two(One):
+    def do_it(self):
+        print("do_it from Two")
+
+class Three(Two):
+    def do_it(self):
+        super().do_it()
+
+one = One()
+two = Two()
+three = Three()
+one.doanything()
+two.doanything()
+three.doanything()
+
+#
+def reciprocal(n):
+    try:
+        n = 1 / n
+    except ZeroDivisionError:
+        print("Division failed")
+        return None
+    else:
+        print("Everything went fine")
+        return n
+    
+print("---------------")
+print('reciprocal(2):',reciprocal(2))
+print("----------------")
+print('reciprocal(2):',reciprocal(0))
+print("----------------")
+
+#
+def reciprocal(n):
+    try:
+        n = 1 / n
+    except ZeroDivisionError:
+        print("Division failed")
+        return None
+    else:
+        print("Everything went fine")
+    finally:
+        print("It is time to say goodbye")
+        return n
+    
+print("---------------")
+print('reciprocal(2):',reciprocal(2))
+print("----------------")
+print('reciprocal(2):',reciprocal(0))
+print("----------------")
+
+#
+try:
+    1 = int("Hello")
+except Exception as e:
+    print(e)
+    print(e.__str__)
+
+#
+class MyZeroDivisonError(ZeroDivisionError):
+    pass
+
+def do_the_divison(mine):
+    if mine:
+        raise MyZeroDivisonError("some worse news")
+    else:
+        raise ZeroDivisionError("some bad news")
+    
+do_the_divison(False)
+
+
+#
+city = "Bhopal"
+print(city[0])
+print(city[2])
+
+print(city[-1])
+print(city[5])
+
+print(city[-3])
+print(city[3])
+
+#
+text =' Hello Python World! '
+print(text.upper())
+print(text.lower())
+print(text.title())
+print(text.capitalize())
+
+print(text.strip())
+
+print('Python' in text)
+print(text.find('Python'))
+print(text.count("l"))
+
+#
+csv = 'Rahul,22,Bhopal,Engineer'
+parts = csv.split(",")
+print(parts)
+print(parts[0])
+rejoined = ' | '.join(parts)
+print(rejoined)
+
+print('hello128'.isalnum())
+print('12345'.isdigit())
+print('Python'.isalphal())
+print(' '.isspace())
+
+email = 'student@gmail.com'
+print(email.endswith('.com'))
+print(email.startwith('stu'))
+#
+
+name, marks, rank = 'Anita',90.567,3
+
+print(f'Hello,{name}!')
+
+print(f'Marks:{marks:.2f}')
+print(f'Marks:{marks:0f}')
+print(f'Count:{1000000:,}')
+
+print(f'{name:<15}|{marks:>8.2f}|Rank:{rank}')
+
+price,gst = 500,0.18
+print(f'Price:Rs.{price} | GST:Rs.{price*gst:.2f} | Total:Rs.{price*(1+gst):.2f}')
+
+#
+name, marks, rank = 'Anita',90.567,3
+
+print(f'Hello,{name}!')
+
+print(f'Marks:{marks:.2f}')
+print(f'Marks:{marks:0f}')
+print(f'Count:{1000000:,}')
+
+print(f'{name:<15}|{marks:>8.2f}|Rank:{rank}')
+print(f'hello {name:^10}')
+print(f'hello {name:>10}')
+print(f'hello {name:<10}')
+print(f'hello {name:^11}')
+
+price,gst = 500,0.18
+print(f'Price:Rs.{price} | GST:Rs.{price*gst:.2f} | Total:Rs.{price*(1+gst):.2f}')
+
+#
+#string = "Hello,How are you doing today"
+#Count vowels in the string
+#Print you from the string 
+#Print the string in reverse order
+#non_palin,palin = "abcdef","axttxa"
+#check if the string is palindrome or not
+
+
+string = "Hello,How are you doing today"
+count = 0
+
+while count<= float('inf') :
+    if string in range('A','E','I','O','U','a','e','i','o','u'):
+      print(count)
+      count+= 1
+    
+#
+with open('data.txt',"r") as file:
+    data = file.read()
+
+print(data)
+
+#
+with open('students.txt', 'w') as f:
+    f.write('Rahul Sharma,85,Bhopal\n')
+    f.write('Priya Verma,92,Indore\n')
+    f.write('Amit Kumar,73,Jabalpur\n')
+
+with open('students.txt', 'a') as f:
+    f.write('Sneha Joshi,88,Bhopal\n')
+
+with open('students.txt', 'r') as f:
+    content = f.read()
+print(content)
+
+with open('students.txt', 'r') as f:
+    for line in f:
+        name, marks, city = line.strip().split(',')
+        print(f'{name:<15} | {marks:>5} | {city}')
+        print("------------")
+
+#
+import csv
+
+records = [
+    ['Name','Marks','City','Grade'],
+    ['Rahul',85,'Bhopal','B'],
+    ['Priya',92,'Indore','A'],
+    ['Amit',73,'Jabalpur','B'],   
+]
+with open('students.csv','w',newline='') as f:
+    csv.writer(f).writerows(records)
+
+with open('students.csv','r') as f:
+    for row in csv.DictReader(f):
+        print(f'{row["Name"]}: {row["Marks"]} marks ({row["City"]})')
+
+#
+import csv
+
+records = [
+    ['Name','Age','Marks1','Marks2','Marks3'],
+    ['Jeet',20,10,20,30],
+    ['Nikhil',30,40,40,50],
+    ['Samay',25,50,50,60,70],
+]
+with open('students.csv','w',newline='') as f:
+    csv.writer(f).writerows(records)
+
+with open('students.csv','r') as f:
+    for row in csv.DictReader(f):
+        print(f'{row["Name"]}: {row["Age"]} age {row["Marks1"]} marks1 {row["Marks2"]} marks2 {row["Marks3"]} marks3')
+
+#
+import csv
+
+records = [
+    ['Name','Marks','City','Grade'],
+    ['Rahul',85,'Bhopal','B'],
+    ['Priya',92,'Indore','A'],
+    ['Amit',73,'Jabalpur','B'],   
+]
+with open('students.csv','w',newline='') as f:
+    csv.writer(f).writerows(records)
+
+name = input("Enter Student Name for Search:")
+
+found = False
+
+with open('students.csv','r') as f:
+    for row in csv.DictReader(f):
+        if row["Name"] == name:
+            print(f'Found {name}')
+            print(f'{row["Name"]}: {row["Marks"]} marks ({row["City"]})')
+            found = True
+            break
+
+if not found :
+    print("Student Not found!!")
+
+#numpy library to write array
+
+import numpy as np
+
+arr1d = np.array([1,2,3,4,5])
+arr2d = np.array([85,90,78],[72,88,95],[91,76,83]) #3 students x 3 subjects
+
+print(arr2d.shape) #(3,3)
+print(arr2d.dtype) # int64
+print(arr2d.ndim)  #2(2-dimensional)
